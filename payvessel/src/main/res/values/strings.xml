@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Payvessel</string>
+    <string name="payvessel_checkout_title">Payvessel Checkout</string>
+    <string name="payvessel_loading">Loading...</string>
+    <string name="payvessel_cancel">Cancel</string>
+</resources>

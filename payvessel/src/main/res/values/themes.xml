@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Payvessel" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/payvessel_primary</item>
+        <item name="colorPrimaryDark">@color/payvessel_primary_dark</item>
+        <item name="colorAccent">@color/payvessel_accent</item>
+        <item name="android:windowBackground">@color/payvessel_background</item>
+        <item name="android:statusBarColor">@color/payvessel_primary_dark</item>
+    </style>
+</resources>

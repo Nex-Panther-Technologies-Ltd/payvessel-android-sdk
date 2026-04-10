@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="payvessel_primary">#1E3A5F</color>
+    <color name="payvessel_primary_dark">#152A45</color>
+    <color name="payvessel_accent">#4CAF50</color>
+    <color name="payvessel_background">#FFFFFF</color>
+    <color name="payvessel_text">#212121</color>
+    <color name="payvessel_text_secondary">#757575</color>
+</resources>
