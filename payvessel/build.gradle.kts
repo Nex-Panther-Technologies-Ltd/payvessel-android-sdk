@@ -2,7 +2,6 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("maven-publish")
-    id("signing")
 }
 
 android {
@@ -60,66 +59,16 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
 
-publishing {
-    publications {
-        register<MavenPublication>("release") {
-            groupId = "com.payvessel"
-            artifactId = "payvessel-android"
-            version = "1.0.0"
-
-            afterEvaluate {
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
                 from(components["release"])
-            }
-
-            pom {
-                name.set("Payvessel Android SDK")
-                description.set("Official Payvessel Payment SDK for Android")
-                url.set("https://github.com/Nex-Panther-Technologies-Ltd/payvessel-android-sdk")
                 
-                licenses {
-                    license {
-                        name.set("MIT License")
-                        url.set("https://opensource.org/licenses/MIT")
-                    }
-                }
-                
-                developers {
-                    developer {
-                        id.set("payvessel")
-                        name.set("Nex Panther Technologies Ltd")
-                        email.set("support@payvessel.com")
-                    }
-                }
-                
-                scm {
-                    connection.set("scm:git:github.com/Nex-Panther-Technologies-Ltd/payvessel-android-sdk.git")
-                    developerConnection.set("scm:git:ssh://github.com/Nex-Panther-Technologies-Ltd/payvessel-android-sdk.git")
-                    url.set("https://github.com/Nex-Panther-Technologies-Ltd/payvessel-android-sdk")
-                }
+                groupId = "com.github.Nex-Panther-Technologies-Ltd"
+                artifactId = "payvessel-android-sdk"
+                version = "1.0.0"
             }
         }
     }
-    
-    repositories {
-        maven {
-            name = "sonatype"
-            val releasesRepoUrl = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-            val snapshotsRepoUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-            url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
-            
-            credentials {
-                username = findProperty("ossrhUsername") as String? ?: System.getenv("OSSRH_USERNAME")
-                password = findProperty("ossrhPassword") as String? ?: System.getenv("OSSRH_PASSWORD")
-            }
-        }
-    }
-}
-
-signing {
-    val signingKeyId = findProperty("signing.keyId") as String? ?: System.getenv("SIGNING_KEY_ID")
-    val signingKey = findProperty("signing.key") as String? ?: System.getenv("SIGNING_KEY")
-    val signingPassword = findProperty("signing.password") as String? ?: System.getenv("SIGNING_PASSWORD")
-    
-    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
-    sign(publishing.publications["release"])
 }
