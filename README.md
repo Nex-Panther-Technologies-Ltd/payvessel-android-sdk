@@ -2,7 +2,7 @@
 
 Official Payvessel Payment SDK for Android applications.
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.payvessel/payvessel-android.svg)](https://search.maven.org/artifact/com.payvessel/payvessel-android)
+[![JitPack](https://jitpack.io/v/Nex-Panther-Technologies-Ltd/payvessel-android-sdk.svg)](https://jitpack.io/#Nex-Panther-Technologies-Ltd/payvessel-android-sdk)
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)](https://android-arsenal.com/api?level=21)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -16,39 +16,43 @@ Official Payvessel Payment SDK for Android applications.
 
 ## Installation
 
-### Gradle (Kotlin DSL)
+### Step 1: Add JitPack Repository
 
-Add to your `build.gradle.kts`:
+Add JitPack repository to your root `settings.gradle.kts`:
 
 ```kotlin
-dependencies {
-    implementation("com.payvessel:payvessel-android:1.0.0")
-}
-```
-
-### Gradle (Groovy)
-
-Add to your `build.gradle`:
-
-```groovy
-dependencies {
-    implementation 'com.payvessel:payvessel-android:1.0.0'
-}
-```
-
-### JitPack (Alternative)
-
-Add JitPack repository to your root `build.gradle`:
-
-```groovy
-allprojects {
+dependencyResolutionManagement {
     repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+```
+
+Or in `settings.gradle` (Groovy):
+
+```groovy
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
         maven { url 'https://jitpack.io' }
     }
 }
 ```
 
-Then add the dependency:
+### Step 2: Add Dependency
+
+Add to your app's `build.gradle.kts`:
+
+```kotlin
+dependencies {
+    implementation("com.github.Nex-Panther-Technologies-Ltd:payvessel-android-sdk:1.0.0")
+}
+```
+
+Or in `build.gradle` (Groovy):
 
 ```groovy
 dependencies {
